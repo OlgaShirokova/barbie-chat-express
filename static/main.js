@@ -42,7 +42,7 @@ $(function () {
 
 		$.ajax({
 			method: 'POST',
-			url: '/userMsgs',
+			url: '/messages',
 			data: {
 				user: 'user1',
 				content: newMsg
@@ -62,23 +62,26 @@ $(function () {
 			}
 		})
 
-		$.ajax({
-			method: 'POST',
-			url: '/quoteMsgs',
-			data: response.quoteText + response.quoteAuthor,
-			success: function (data) {
-				renderQuote(data);
-			},
-			dataType: 'json'
-		});
-
+		// $.ajax({
+		// 	method: 'POST',
+		// 	url: '/messages',
+		// 	data: {
+		// 		user: 'forismatic',
+		// 		content: response.quoteText + response.quoteAuthor
+		// 	},
+		// 	success: function (data) {
+		// 		renderQuote(data);
+		// 	},
+		// 	dataType: 'json'
+		// });
+		//
 
 	});
 
 	$('#delete').click(function() {
 		$.ajax({
-			method: 'POST',
-			url: '/deleteMsgs',
+			method: 'DELETE',
+			url: '/messages',
 			data: '',
 			success: function (data) {
 			},
